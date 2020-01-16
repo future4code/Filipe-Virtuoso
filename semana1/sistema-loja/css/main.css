@@ -1,0 +1,139 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Styling */
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    padding-bottom: 20px;   
+}
+
+p {
+    margin: 10px 0;
+}
+
+
+/* Navbar */
+#navbar {
+    /* background: #333; */
+    background: #333;
+    overflow: auto;
+}
+
+.logo {
+    font-family: 'Handlee', cursive;
+}
+
+#navbar a {
+    color: #f0f6ff;
+}
+
+#navbar h1 {
+    float: left;
+    padding-top: 20px;
+}
+
+#navbar ul {
+    list-style: none;
+    float: right;
+}
+
+#navbar ul li {
+  float: left;
+  text-transform: uppercase;
+  font-family: 'Passion One', cursive;
+  font-size: 1.2em;
+}
+
+#navbar ul li a {
+    position: relative;
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+#navbar ul li a:hover {
+    background-color: #616060;
+    color: #fc5869;
+    text-decoration: none;
+}
+
+
+/* Utility Classes */
+.container {
+    margin: auto;
+    max-width: 1100px;
+    overflow: auto;
+    padding: 0 20px;
+}
+
+/* Showcase */
+#showcase {
+    background-color: #ffc2c2;
+    height: 600px;
+}
+
+#showcase .showcase-content {
+    color: #292929;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#showcaase .showcase-content h1 {
+    font-size: 60px;
+    line-height: 1.2em;
+}
+
+
+section {
+    float: left;
+    width: 32%;
+    height: 200px;
+    border: 1px solid #333;
+    margin-right: 10px;
+    background-color: #f08ba0;
+    font-family: 'Passion One';
+    font-size: 2em;
+    padding-top: 80px;
+    text-transform: uppercase;
+    color: #bf025d;
+}
+
+#showcase h1 {
+    font-family: 'Handlee', cursive;
+    text-transform: uppercase;
+}
+
+section p {
+    -ms-transform: rotate(10deg); 
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);    
+}
+
+.footer {
+    height: 200px;
+    background-color: #333;
+    text-align: center;
+    padding-top: 100px;
+    font-family: 'Handlee', cursive;
+}
+
+.footer p {
+    color: #f0f6ff;
+}
+
+.red-text {
+    color: #bf025d;
+}
