@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0.75rem 0;
+}
+
+/* Utility classes */
+
+.bg-light {
+  background: #f4f4f4;
+  color: #333;
+} 
+
+.bg-dark {
+  background: #333;
+  color: #fff;
+}
+
+
+.text-primary {
+  color: #4c97ed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.large-heading {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.medium-heading {
+  font-size: 2rem;
+  margin-bottom: 0.75;
+  line-height: 1.1;
+}
+
+.about-text {
+  font-size: 1.3rem;
+}
+
+.container{
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.padding-t1 {
+  padding: 1.5rem 0;
+}
+
+.padding-t2 {
+  padding: 2rem 0;
+}
+
+.padding-t3 {
+  padding: 3rem 0;
+}
+
+.padding-1 {
+  padding: 1.5rem;
+}
+
+.padding-2 {
+  padding: 2rem;
+}
+
+.padding-3 {
+  padding: 3rem;
+}
+
+.list {
+  margin: 0.5rem 0;
+}
+
+.list li {
+  padding: 0.5rem 0;
+  border-bottom: #444 dotted 1px;
+}
+
+.social-network {
+  display: flex;
+  list-style: none;
+  margin: 0.5rem 0;
+}
+
+.social-network li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.social-network li a {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  color: #444;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+}
+
+
+.social-network a:hover {
+  background-color: #4c97ed; 
+}
+
+
+
+.item .button {
+  background-color: #89a1f0;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+/* Navbar */
+#navbar {
+  display: flex;
+  position: sticky;
+  top:0;
+  background-color: #333;
+  color: #fff;
+  justify-content: space-between;
+  z-index: 1;
+  padding: 1rem;
+}
+
+#navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar ul li a {
+  color: #fff;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+}
+
+#navbar ul li a:hover {
+  background: #4c97ed; 
+  border-radius: 5px;
+}
+
+#about {
+  background: #686b7d;
+  height: 100vh;
+  color: #fff;
+
+}
+
+#about .about-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+/* Section: Projetos */
+
+.items {
+  display: flex;
+  padding: 1rem;
+}
+
+#projects .item .item {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Section: Habilidades */
+
+#skills {
+  display: flex;
+}
+
+#skills div {
+  flex: 1;
+}
+
+#skills .skills-img {
+  background: url('../img/me.jpeg') no-repeat
+  center center/cover
+}
+
