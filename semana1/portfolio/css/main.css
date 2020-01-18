@@ -31,6 +31,10 @@ p {
   color: #fff;
 }
 
+.red-text {
+  color: red;
+}
+
 
 .text-primary {
   color: #4c97ed;
@@ -97,32 +101,6 @@ p {
   border-bottom: #444 dotted 1px;
 }
 
-.social-network {
-  display: flex;
-  list-style: none;
-  margin: 0.5rem 0;
-}
-
-.social-network li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.social-network li a {
-  background-color: #f4f4f4;
-  border-radius: 5px;
-  color: #444;
-  padding: 0.75rem;
-  margin: 0 0.25rem;
-}
-
-
-.social-network a:hover {
-  background-color: #4c97ed; 
-}
-
-
-
 .item .button {
   background-color: #89a1f0;
   border: none;
@@ -133,6 +111,38 @@ p {
   font-size: 1rem;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.button:hover {
+  background-color: #4c97ed;
+}
+
+.bg-primary {
+  background: #89a1f0;
+  color: #444;
+}
+
+.btn {
+  background-color: #444;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background:#686b7d;
+}
+
+.dark {
+  color: #444;
+  background-color: #5f7de8;
+  font-size: 1.3rem;
+  line-height: 1.1rem;
 }
 
 
@@ -183,6 +193,12 @@ p {
   padding: 0 2rem;
 }
 
+#about .school li {
+  list-style: none;
+  color: #f4f4f4; 
+  margin-bottom: 0.75rem;
+}
+
 /* Section: Projetos */
 
 .items {
@@ -190,7 +206,7 @@ p {
   padding: 1rem;
 }
 
-#projects .item .item {
+#projects .items .item {
   flex: 1;
   text-align: center;
   padding: 1rem;
@@ -210,4 +226,60 @@ p {
   background: url('../img/me.jpeg') no-repeat
   center center/cover
 }
+
+/* Section: Contato & Social */
+
+#contact {
+  display: flex;
+}
+
+
+#contact .contact-form .form-group {
+  margin: 0.75rem;
+}
+
+#contact .contact-form label {
+  display: block;
+}
+
+#contact .contact-form input, 
+#contact .contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.social {
+  background: #686b7d;
+  width: 100%;
+  color: #f4f4f4;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+
+.social-links li {
+  list-style: none;
+}
+
+
+.social-links li a {
+  background-color: #89a1f0;
+  border-radius: 5px;
+  color: #f4f4f4;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  text-decoration: none;
+}
+
+
+.social-links a:hover {
+  background-color: #4c97ed; 
+}
+
+
+
+
+
 
