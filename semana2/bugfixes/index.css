@@ -114,7 +114,13 @@ table {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    /* border-collapse: collapse; */
+    text-align: center;
 }
+
+/* table, th, td {
+    border: 1px solid black;
+} */
 
 td button {
     background-color: #fadf63;
@@ -155,9 +161,6 @@ td button:hover {
     font-size: 10px;
     color: black;
     text-align: center;
-}
-
-#back-button {
     text-decoration: none;
     text-transform: uppercase;
 }
