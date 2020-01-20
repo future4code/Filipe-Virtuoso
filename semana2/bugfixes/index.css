@@ -58,9 +58,14 @@ div img {
     text-transform: uppercase;
 }
 
+.botao-amarelo:focus {
+    outline: 0;
+}
+
 .buy-button {
     text-decoration: none;
 }
+
 
 .botao-amarelo:hover {
     background-color: #c44f00;
@@ -132,6 +137,12 @@ td button {
     border-radius: 5px;
     color: black;
 }
+
+td button:focus {
+    outline: 0;
+}
+
+
 
 td button:hover {
     background-color: #c4ad31;
