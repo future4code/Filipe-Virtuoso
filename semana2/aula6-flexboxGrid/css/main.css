@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo&display=swap');
+
 /* RESET */
 * {
   box-sizing: border-box;
@@ -11,6 +13,21 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* Utility */
+
+.container{
+  display: flex;
+  justify-content: center;
+  background-color: #B10DC9;
+  padding: 20px;
+  color: #f4f4f4;
+  font-family: 'Boogaloo', cursive;
+}
+
+.content {
+  text-transform: uppercase;
 }
 
 /* Navbar */
@@ -52,9 +69,49 @@ a {
   background-color: #F012BE;
 }
 
-.content {
-  text-transform: uppercase;
-}
-
 /* Section: Content2 */
 
+#content2 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 30vh;  
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: #0074D9;
+  margin: 0;
+  padding: 0;
+  flex: 2;
+  padding: 86px;
+}
+
+.white-bg {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  padding: px;
+}
+
+.group {
+  display: flex;
+  flex-direction:  column;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.image {
+  background-color: #FF4136;
+  padding: 36px;
+  margin: 0;
+}
+
+.extra {
+  background-color: #01FF70;
+  padding: 36px;
+  margin: 0;
+}
