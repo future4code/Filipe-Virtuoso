@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Utility classes */
+
+#about .stack li {
+  list-style: none;
+  color: #f4f4f4;
+  background-color: #444;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+#about h3 {
+  color: #f4f4f4;
+  background-color: #444;
+  padding: 0.75rem;
+}
+
+.dark {
+  color: #444;
+  background-color: #5f7de8;
+  font-size: 1.3rem;
+  line-height: 1.1rem;
+}
+
+.padding-t1 {
+  padding: 1.5rem 0;
+}
+
+
+/* Navbar */
+#navbar {
+  display: flex;
+  position: sticky;
+  top:0;
+  background-color: #333;
+  color: #fff;
+  justify-content: space-between;
+  z-index: 1;
+  padding: 1rem;
+}
+
+#navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar ul li a {
+  color: #fff;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+}
+
+#navbar ul li a:hover {
+  background: #4c97ed; 
+  border-radius: 5px;
+}
+
+/* Header: Sobre */
+
+#about {
+  background: #333 url('../img/wiki.jpeg')
+  no-repeat center center/cover;
+  height: 100vh;
+  color: #fff;
+
+}
+
+.about-text {
+  font-size: 1.3rem;
+  color: #f4f4f4;
+  background-color: #444;
+  padding: 0.75rem;
+}
+
+#about h1 {
+  color: #f4f4f4;
+  background-color: #444;
+  padding: 0.75rem;
+}
+
+#about .about-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  /* Overlay */
+  position: abosolute;
+  top: 60;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#about .stack li {
+  list-style: none;
+  color: #f4f4f4; 
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
