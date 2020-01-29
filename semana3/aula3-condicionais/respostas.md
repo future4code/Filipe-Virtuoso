@@ -68,6 +68,10 @@ console.log("Números em ordem decrescente: ", numbers);
 ```
 
 5 - 
+a.
+https://imgur.com/a/rEMAbb3
+
+b.
 ```
 const ossos = prompt("O animal possui óssos? ");
 if(ossos.toLowerCase() === "sim") {
