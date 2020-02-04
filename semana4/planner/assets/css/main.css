@@ -1,0 +1,110 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Utility classes */
+
+.btn {
+  background: #7c70ff;
+  border-radius: 5px;
+  border: none;
+  text-align: center; 
+  color: #f4f4f4;
+  text-transform: uppercase;
+  width: 30%;
+  font-size: 1.1rem;
+  outline: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  background: #00c2f2;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+
+/* Actions */
+.actions {
+ display: flex;
+ justify-content: space-around;
+ height: 20vh;
+ padding: 1.1rem;
+ background: #b3d2ff;
+}
+
+.actions textarea {
+  outline: 0;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+select {
+  width: 30%;
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: 0;
+}
+
+/* Main */
+.todo {
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+
+  width: 100%;
+  
+  background:#f4f4f4;
+  height: 70vh;
+  padding: 1.8rem;
+  text-transform: uppercase;
+  text-align: center;;
+}
+
+.todo article {
+  padding: 0.55rem;
+  margin: 0.50rem;
+  background: #dbdbdb;
+  border-radius: 5px;
+  font-size: 0.70rem;
+  width: 100%;
+}
+
+article h3 {
+  font-size: 1.1rem;
+  border-bottom: 1px dotted black;
+}
+
+.todo ul {
+  list-style: none;
+}
+
+.todo ul li { 
+  margin: auto;
+  margin: 0.60rem;
+}
+
+
