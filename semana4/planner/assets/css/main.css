@@ -1,5 +1,7 @@
 /* Imports */
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px&display=swap');
 
 /* Reset */
 * {
@@ -25,9 +27,10 @@ a {
   text-align: center; 
   color: #f4f4f4;
   text-transform: uppercase;
-  width: 30%;
+  width: 20%;
   font-size: 1.1rem;
   outline: 0;
+  cursor: pointer;
 }
 
 /* Navbar */
@@ -47,9 +50,9 @@ a {
 /* Actions */
 .actions {
  display: flex;
- justify-content: space-around;
+ justify-content: space-between;
  height: 20vh;
- padding: 1.1rem;
+ padding: 0.75rem;
  background: #b3d2ff;
 }
 
@@ -60,9 +63,9 @@ a {
 }
 
 select {
-  width: 30%;
+  width: 20%;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   text-transform: uppercase;
   border-radius: 5px;
   outline: 0;
@@ -74,28 +77,31 @@ select {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; 
-
   width: 100%;
-  
   background:#f4f4f4;
   height: 70vh;
   padding: 1.8rem;
-  text-transform: uppercase;
   text-align: center;;
 }
 
 .todo article {
-  padding: 0.55rem;
+  /* padding: 0.55rem; */
   margin: 0.50rem;
   background: #dbdbdb;
-  border-radius: 5px;
-  font-size: 0.70rem;
+  border-radius: 10px;
+  font-size: 0.80rem;
   width: 100%;
+
 }
 
 article h3 {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   border-bottom: 1px dotted black;
+  text-transform: uppercase;
+  font-family: 'Slabo 27px', serif;
+  background: #7a8cff;
+  color: #f4f4f4;
+  border-radius: 10px 10px 0 0;
 }
 
 .todo ul {
@@ -104,7 +110,42 @@ article h3 {
 
 .todo ul li { 
   margin: auto;
-  margin: 0.60rem;
+  margin: 1rem;
+  cursor: pointer;
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    height: 50vh;
+
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .actions textarea {
+    height: 10vh;
+  }
+  
+  .actions select {
+    width: 100%;
+  }
+
+
+
+    
+
 }
 
 
