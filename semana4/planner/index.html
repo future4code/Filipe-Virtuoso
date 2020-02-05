@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <title>Planner</title>
-</head>
-<body class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Planner</title>
+  </head>
+  <body class="app">
+    <nav class="navbar">
+      <h1><i class="fa fa-calendar"></i> Planner</h1>
+    </nav>
 
-  <nav class="navbar">
-    <h1><i class="fa fa-calendar"></i> Planner</h1>
-  </nav>
+    <section class="actions">
+      <textarea name="info" id="action-info" cols="40" rows="10"></textarea>
+      <select name="diaDaSemana" id="diaDaSemana">
+        <option value="segunda">Segunda-Feira</option>
+        <option value="terca">Terça-Feira</option>
+        <option value="quarta">Quarta-Feira</option>
+        <option value="quinta">Quinta-Feira</option>
+        <option value="sexta">Sexta-Feira</option>
+        <option value="sabado">Sábado</option>
+        <option value="domingo">Domingo</option>
+      </select>
+      <button class="btn" onclick="addTodo();">
+        <i class="fa fa-plus-circle"></i> Adicionar
+      </button>
+      <button class="btn" onclick="clearTodo();">
+        <i class="fa fa-eraser"></i> Limpar
+      </button>
+    </section>
 
-  <section class="actions">
-    <textarea name="info" id="action-info" cols="60" rows="10"></textarea>
-    <select name="diaDaSemana" id="diaDaSemana">
-      <option value="segunda">Segunda-Feira</option>
-      <option value="terca">Terça-Feira</option>
-      <option value="quarta">Quarta-Feira</option>
-      <option value="quinta">Quinta-Feira</option>
-      <option value="sexta">Sexta-Feira</option>
-      <option value="sabado">Sábado</option>
-      <option value="domingo">Domingo</option>
-  </select>
-  <button class="btn" onclick="addTodo();"><i class="fa fa-plus-circle"></i> Adicionar</button>
-  <button class="btn" onclick="clearTodo();"><i class="fa fa-eraser"></i> Limpar</button>
-  </section>
+    <main class="todo">
+      <article>
+        <h3>Segunda</h3>
+        <ul class="item-list" id="monday-list"></ul>
+      </article>
 
-  <main class="todo">
-    <article>
-      <h3>Segunda</h3>
-      <ul class="item-list" id="monday-list"></ul>
-    </article>
+      <article>
+        <h3>Terça</h3>
+        <ul class="item-list" id="tuesday-list"></ul>
+      </article>
 
-    <article>
-      <h3>Terça</h3>
-      <ul class="item-list" id="tuesday-list"></ul>
-    </article>
+      <article>
+        <h3>Quarta</h3>
+        <ul class="item-list" id="wed-list"></ul>
+      </article>
 
-    <article>
-      <h3>Quarta</h3>
-      <ul class="item-list" id="wed-list"></ul>
-    </article>
+      <article>
+        <h3>Quinta</h3>
+        <ul class="item-list" id="thursday-list"></ul>
+      </article>
 
-    <article>
-      <h3>Quinta</h3>
-      <ul class="item-list" id="thursday-list"></ul>
-    </article>
+      <article>
+        <h3>Sexta</h3>
+        <ul class="item-list" id="friday-list"></ul>
+      </article>
 
-    <article>
-      <h3>Sexta</h3>
-      <ul class="item-list" id="friday-list"></ul>
-    </article>
+      <article>
+        <h3>Sábado</h3>
+        <ul class="item-list" id="saturday-list"></ul>
+      </article>
 
-    <article>
-      <h3>Sábado</h3>
-      <ul class="item-list" id="saturday-list"></ul>
-    </article>
-    
-    <article>
-      <h3>Domingo</h3>
-      <ul class="item-list" id="sunday-list"></ul>
-    </article>
-  </main>
+      <article>
+        <h3>Domingo</h3>
+        <ul class="item-list" id="sunday-list"></ul>
+      </article>
+    </main>
 
-  <script type="text/javascript" src="assets/js/main.js"></script>
-</body>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+  </body>
 </html>
