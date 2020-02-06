@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Funções de array</title>
+  </head>
+  <body class="app">
+    <nav id="navbar" class="menu">
+      <h1><i class="fa fa-wallet"></i> Finanças</h1>
+    </nav>
+
+    <section class="expenses-form container">
+      <h3>Cadastro de despesas:</h3>
+      <label for="tipoGasto">Tipo:</label>
+      <select name="tipoGasto" id="tipoGasto">
+        <option value="Alimentação">Alimentação</option>
+        <option value="Casa">Casa</option>
+        <option value="Transporte">Transporte</option>
+      </select>
+      <label for="valor">Valor:</label>
+      <input name="valor" id="value" type="number" />
+      <label for="">Descrição:</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="7"
+      ></textarea>
+      <button onclick="addExpense()" class="btn">
+        <i class="fas fa-plus-circle"></i> Adicionar
+      </button>
+    </section>
+
+    <section class="expenses-list container">
+      <h3>Despesas detalhadas:</h3>
+      <label for="tipoGasto">Tipo:</label>
+      <select name="tipoGasto" id="tipoGasto">
+        <option value="Alimentação">Alimentação</option>
+        <option value="Casa">Casa</option>
+        <option value="Transporte">Transporte</option>
+      </select>
+      <label for="minValue">Valor minímo:</label>
+      <input name="minValue" type="number" />
+      <label for="maxValue">Valor máximo:</label>
+      <input name="maxValue" type="number" />
+      <button class="btn"><i class="fas fa-search-dollar"></i> Filtrar</button>
+      <button class="btn"><i class="fas fa-eraser"></i> Limpar filtros</button>
+    </section>
+
+    <section class="extract container">
+      <h3><i class="fas fa-receipt"></i> Extrato:</h3>
+    </section>
+
+    <section id="expenses-table" class="expenses">
+      <h3 class=""><i class="fas fa-money-bill-wave-alt"></i> Gastos:</h3>
+      <table id="list-table">
+        <tr>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Descrição</th>
+        </tr>
+      </table>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
