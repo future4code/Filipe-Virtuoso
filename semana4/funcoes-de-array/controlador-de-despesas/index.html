@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <title>Funções de array</title>
+    <title>Controle de gastos</title>
   </head>
   <body class="app">
     <nav id="navbar" class="menu">
@@ -40,22 +40,27 @@
 
     <section class="expenses-list container">
       <h3>Despesas detalhadas:</h3>
-      <label for="tipoGasto">Tipo:</label>
-      <select name="tipoGasto" id="tipoGasto">
+      <label for="tipoGastoFilter">Tipo:</label>
+      <select name="tipoGastoFilter" id="tipoGastoFilter">
         <option value="Alimentação">Alimentação</option>
         <option value="Casa">Casa</option>
         <option value="Transporte">Transporte</option>
       </select>
       <label for="minValue">Valor minímo:</label>
-      <input name="minValue" type="number" />
+      <input id="minValue" name="minValue" type="number" />
       <label for="maxValue">Valor máximo:</label>
-      <input name="maxValue" type="number" />
-      <button class="btn"><i class="fas fa-search-dollar"></i> Filtrar</button>
-      <button class="btn"><i class="fas fa-eraser"></i> Limpar filtros</button>
+      <input id="maxValue"" name="maxValue" type="number" />
+      <button onclick="filterExpenses()" class="btn">
+        <i class="fas fa-search-dollar"></i> Filtrar
+      </button>
+      <button onclick="listExpenses()" class="btn">
+        <i class="fas fa-eraser"></i> Limpar filtros
+      </button>
     </section>
 
     <section class="extract container">
       <h3><i class="fas fa-receipt"></i> Extrato:</h3>
+      <ul id="extract"></ul>
     </section>
 
     <section id="expenses-table" class="expenses">
