@@ -122,3 +122,52 @@ const sayHi = () => {
 
 sayHi();
 */
+
+// Exercícios de objetos
+/*
+Exercício 1 --
+Array quando precisamos trabalhar com conjuntos de elementos e objetos para que possamos
+fazer uma abstração, facilitando o trabalho.
+
+Exercício 2 --
+class Retangulo {
+    constructor(largura, altura) {
+      this.largura = largura;
+      this.altura = altura;
+      this.perimetro = 2 * (largura * altura);
+      this.area = largura * altura;
+    }
+}
+const criaRetangulo = (largura, altura) => {
+  return new Retangulo(largura, altura);
+}
+
+Exercício 3 --
+  const movie = {
+    title: "Intouchables",
+    year: "2011",
+    director: ["Olivier Nakache", "Éric Toledano"],
+    actors: ["François Cluzet", "Omar Sy"],
+    actresses: ["Audrey Fleurot", "Anne Le Ny"] 
+  }
+
+  console.log(`Venha assistir ao filme ${movie.title}, de ${movie.year}, dirigido por ${movie.director.toString(', ')} e 
+  estrelado por ${movie.actors.toString(', ')} e ${movie.actresses.toString(', ')}`);
+
+Exercício 4 --  
+  const person = {
+    name: "Luiz Filipe",
+    idade: 28,
+    email: "lfvirtuoso@gmail.com",
+    endereco: "Rua x"
+  }
+*/
+
+//Exercícios de funções de array de array
+/*
+Exercício 1 --
+Exercício 2 --
+Exercício 3 --
+Exercício 4 --
+Exercício 5 --
+*/
