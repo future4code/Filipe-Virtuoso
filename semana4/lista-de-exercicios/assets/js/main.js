@@ -101,3 +101,24 @@ const checkNumbers = (num1, num2) => {
   }
 }
 */
+
+// Exercícios de funções
+/*
+Exercício 1 --
+const findInArr = (arr) => {
+
+  arr.sort((a, b) => {
+    return a - b;
+  })
+
+  console.log(`O segundo maior número é ${arr[arr.length - 2]} e o segundo menor é ${arr[1]}`;
+
+}
+
+Exercício 2 --
+const sayHi = () => {
+  alert("Hello Future4");
+}
+
+sayHi();
+*/
