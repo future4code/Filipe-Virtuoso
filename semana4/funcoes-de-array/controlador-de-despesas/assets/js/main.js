@@ -13,12 +13,16 @@ const addExpense = () => {
   const value = document.getElementById("value").value;
   const description = document.getElementById("description").value;
 
-  expenses.push(new Expense(type, value, description));
-  document.getElementById("value").value = "";
-  document.getElementById("description").value = "";
+  if (value && description) {
+    expenses.push(new Expense(type, value, description));
+    document.getElementById("value").value = "";
+    document.getElementById("description").value = "";
 
-  listExpenses();
-  generateExtract();
+    listExpenses();
+    generateExtract();
+  } else {
+    alert("Preencha todos os campos obrigatórios!");
+  }
 };
 
 const listExpenses = () => {
@@ -55,27 +59,35 @@ const filterExpenses = () => {
   let type = document.getElementById("tipoGastoFilter").value;
   let minValue = parseInt(document.getElementById("minValue").value);
   let maxValue = parseInt(document.getElementById("maxValue").value);
-  document.getElementById("list-table").innerHTML =
-    "<table id='list-table'><tr><th>Tipo</th><th>Valor</th><th>Descrição</th></tr></table></section>";
 
-  const filtered = expenses.filter(element => {
-    return (
-      element.value >= minValue &&
-      element.value <= maxValue &&
-      element.type === type
-    );
-  });
+  if (minValue && maxValue) {
+    document.getElementById("list-table").innerHTML =
+      "<table id='list-table'><tr><th>Tipo</th><th>Valor</th><th>Descrição</th></tr></table></section>";
 
-  for (i = 0; i < filtered.length; i++) {
-    document.getElementById("list-table").innerHTML +=
-      "<tr><td>" +
-      filtered[i].type +
-      "</td>" +
-      "<td><span>R$</span> " +
-      filtered[i].value +
-      "</td>" +
-      "<td>" +
-      filtered[i].description +
-      "</td></tr>";
+    const filtered = expenses.filter(element => {
+      return (
+        element.value >= minValue &&
+        element.value <= maxValue &&
+        element.type === type
+      );
+    });
+
+    for (i = 0; i < filtered.length; i++) {
+      document.getElementById("list-table").innerHTML +=
+        "<tr><td>" +
+        filtered[i].type +
+        "</td>" +
+        "<td><span>R$</span> " +
+        filtered[i].value +
+        "</td>" +
+        "<td>" +
+        filtered[i].description +
+        "</td></tr>";
+    }
+  } else {
+    alert("Preencha todos os campos obrigatórios!");
   }
+
+  document.getElementById("minValue").value = "";
+  document.getElementById("maxValue").value = "";
 };

@@ -18,15 +18,15 @@
 
     <section class="expenses-form container">
       <h3>Cadastro de despesas:</h3>
-      <label for="tipoGasto">Tipo:</label>
+      <label for="tipoGasto">Tipo: *</label>
       <select name="tipoGasto" id="tipoGasto">
         <option value="Alimentação">Alimentação</option>
         <option value="Casa">Casa</option>
         <option value="Transporte">Transporte</option>
       </select>
-      <label for="valor">Valor:</label>
+      <label for="valor">Valor: *</label>
       <input name="valor" id="value" type="number" />
-      <label for="">Descrição:</label>
+      <label for="">Descrição: *</label>
       <textarea
         name="description"
         id="description"
@@ -40,15 +40,15 @@
 
     <section class="expenses-list container">
       <h3>Despesas detalhadas:</h3>
-      <label for="tipoGastoFilter">Tipo:</label>
+      <label for="tipoGastoFilter">Tipo: *</label>
       <select name="tipoGastoFilter" id="tipoGastoFilter">
         <option value="Alimentação">Alimentação</option>
         <option value="Casa">Casa</option>
         <option value="Transporte">Transporte</option>
       </select>
-      <label for="minValue">Valor minímo:</label>
+      <label for="minValue">Valor minímo: *</label>
       <input id="minValue" name="minValue" type="number" />
-      <label for="maxValue">Valor máximo:</label>
+      <label for="maxValue">Valor máximo: *</label>
       <input id="maxValue"" name="maxValue" type="number" />
       <button onclick="filterExpenses()" class="btn">
         <i class="fas fa-search-dollar"></i> Filtrar
