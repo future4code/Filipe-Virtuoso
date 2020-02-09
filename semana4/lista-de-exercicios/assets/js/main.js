@@ -161,13 +161,115 @@ Exercício 4 --
     email: "lfvirtuoso@gmail.com",
     endereco: "Rua x"
   }
+
+  const anonimizarPessoa = (obj) => {
+    const anonPerson = {
+      ...obj,
+      name: "Anônimo"
+    }
+  return anonPerson
+  }
 */
 
-//Exercícios de funções de array de array
+//Exercícios de funções de array
 /*
 Exercício 1 --
+const lista = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+a.
+const adultos = lista.filter(el => {
+  return el.idade >= 20;
+});
+
+b.
+const adultos = lista.filter(el => {
+  return el.idade < 20;
+});
+
 Exercício 2 --
+
+const array = [1, 2, 3, 4, 5, 6]
+
+a.
+const timesTwo = array.map(el => {
+  return el * 2;
+});
+
+b. 
+const timesThree = array.map(el => {
+  return String(el * 3);
+});
+
+c. 
+const evenOdd = array.map(el => {
+  return `${el % 2 === 0 ? `${el} é par` : `${el} é ímpar`} `;
+});
+
 Exercício 3 --
+const pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+a. 
+const autorizados = pessoas.filter(el => {
+   return el.idade > 14 && el.idade < 60 && el.altura >= 1.5;
+});
+
+b. const naoAutorizados = pessoas.filter(el => {
+   return !(el.idade > 14 && el.idade < 60 && el.altura >= 1.5);
+});
+
 Exercício 4 --
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+const emails = consultas.map(el => {
+  return `${
+    el.cancelada === false
+      ? `Olá, ${el.genero === "masculino" ? `Sr` : `Sra`} ${
+          el.nome
+        }. Estamos enviando esta mensagem para
+${
+  el.genero === "masculino" ? `lembrá-lo` : `lembrá-la`
+} da sua consulta no dia ${el.dataDaConsulta}. Por favor, acuse
+o recebimento deste e-mail.`
+      : `Olá, ${el.genero === "masculino" ? `Sr.` : `Sra.`} ${
+          el.nome
+        }. Infelizmente, sua consulta marcada
+para o dia ${el.dataDaConsulta} foi cancelada. Se quiser, pode entrar em 
+contato conosco para remarcá-la`
+  }`;
+});
+
 Exercício 5 --
+  const contas = [
+    { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+    { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+    { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+    { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+    { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+    { cliente: "Soter", saldoTotal: 1200, compras: [] }
+  ]
+
+  const atualizarSaldo = (obj) => {
+
+    for(let i = 0; i < obj.length; i++) {
+      obj[i].saldoTotal -= obj[i].compras.reduce((a, b) => a + b, 0);
+    }
+  };
+
 */
