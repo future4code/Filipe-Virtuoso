@@ -13,9 +13,12 @@ class Post extends Component {
   }
 
   likeImage = () => {
+    const iconClass =
+      this.state.icon === "far fa-heart" ? "fas fa-heart" : "far fa-heart";
+    const likeCount = this.state.likes === 1 ? 0 : 1;
     this.setState({
-      likes: (this.state.likes += 1),
-      icon: "fas fa-heart"
+      likes: likeCount,
+      icon: iconClass
     });
   };
 
