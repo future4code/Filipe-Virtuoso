@@ -1,0 +1,14 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.flex-container h1 {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 1.7rem;
+}
