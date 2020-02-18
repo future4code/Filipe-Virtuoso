@@ -24,7 +24,6 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/future4code/Filipe-Virtuoso">
   </a>
 
-  <img alt="GitHub license" src="">
 </p>
 
 ## :rocket: Tecnologias
