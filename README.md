@@ -32,6 +32,7 @@
 - CSS Grid
 - Vanilla Javascript
 - React
+- NodeJS
 - VsCode
 
 ## :pushpin: Projetos
@@ -40,6 +41,10 @@
 - Portfolio
 - FutureTube(https://lfvirtuoso.github.io/futureTube/)
 - Blackjack
+- About-me
+- Future-tube
+- Instagram-feed
+- Future-forms
 
 ---
 
