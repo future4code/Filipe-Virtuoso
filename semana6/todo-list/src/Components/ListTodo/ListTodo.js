@@ -66,9 +66,9 @@ class ListTodo extends Component {
     super(props);
     this.state = {
       filter: 1,
-      done: 1,
+      done: 0,
       pending: 0,
-      all: 0
+      all: 1
     };
   }
 

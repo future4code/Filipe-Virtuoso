@@ -42,19 +42,21 @@ class App extends Component {
     localStorage.setItem("todos", JSON.stringify(this.state));
   }
 
-  compone;
-
   addItem = (name, description) => {
-    const newItem = [
-      ...this.state.todo,
-      {
-        id: Date.now(),
-        name: name,
-        description: description,
-        status: "pending"
-      }
-    ];
-    this.setState({ todo: newItem });
+    if (name && description) {
+      const newItem = [
+        ...this.state.todo,
+        {
+          id: Date.now(),
+          name: name,
+          description: description,
+          status: "pending"
+        }
+      ];
+      this.setState({ todo: newItem });
+    } else {
+      alert("Preencha os campos corretamente!");
+    }
   };
 
   completeTask = el => {
@@ -74,7 +76,9 @@ class App extends Component {
   };
 
   clearBoard = () => {
-    this.setState({ todo: [] });
+    if (window.confirm("Tem certeza que deseja excluir todas as tarefas?")) {
+      this.setState({ todo: [] });
+    }
   };
 
   removeTask = el => {
