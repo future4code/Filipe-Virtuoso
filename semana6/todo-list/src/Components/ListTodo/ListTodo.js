@@ -74,7 +74,6 @@ class ListTodo extends Component {
 
   applyFilter = num => {
     const newValue = num;
-    console.log(newValue);
     this.setState({ filter: newValue });
   };
 
