@@ -101,7 +101,6 @@ class ListTodo extends Component {
               }}
               red
             >
-              {/* <i class="fas fa-trash-alt"></i> */}
               <i class="fas fa-trash"></i>
             </Button>
           </ActionsTd>
@@ -135,7 +134,6 @@ class ListTodo extends Component {
                 }}
                 red
               >
-                {/* <i class="fas fa-trash-alt"></i> */}
                 <i class="fas fa-trash"></i>
               </Button>
             </ActionsTd>
@@ -169,7 +167,6 @@ class ListTodo extends Component {
                 }}
                 red
               >
-                {/* <i class="fas fa-trash-alt"></i> */}
                 <i class="fas fa-trash"></i>
               </Button>
             </ActionsTd>
@@ -198,9 +195,7 @@ class ListTodo extends Component {
           <Button
             onClick={() => {
               this.applyFilter(1);
-              this.setState({ done: 0 });
-              this.setState({ pending: 0 });
-              this.setState({ all: 1 });
+              this.setState({ done: 0, pending: 0, all: 1 });
             }}
             value={this.state.all}
             className={this.state.all === 1 ? "active" : ""}
@@ -210,9 +205,7 @@ class ListTodo extends Component {
           <Button
             onClick={() => {
               this.applyFilter(2);
-              this.setState({ done: 0 });
-              this.setState({ pending: 1 });
-              this.setState({ all: 0 });
+              this.setState({ pending: 1, done: 0, all: 0 });
             }}
             value={this.state.pending}
             className={this.state.pending === 1 ? "active" : ""}
@@ -222,9 +215,7 @@ class ListTodo extends Component {
           <Button
             onClick={() => {
               this.applyFilter(3);
-              this.setState({ done: 1 });
-              this.setState({ pending: 0 });
-              this.setState({ all: 0 });
+              this.setState({ done: 1, pending: 0, all: 0 });
             }}
             value={this.state.done}
             className={this.state.done === 1 ? "active" : ""}
