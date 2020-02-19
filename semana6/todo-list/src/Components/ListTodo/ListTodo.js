@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import "./ListTodo.css";
 
 const Article = styled.article`
   width: 100%;
@@ -20,26 +21,9 @@ const Label = styled.label`
   text-transform: uppercase;
 `;
 
-const Select = styled.select`
-  padding: 0.75rem;
-  margin: 0.75rem;
-  width: 100%;
-  background: #f4f4f4;
-  outline: 0;
-  text-transform: uppercase;
-`;
-
 const Line = styled.hr`
   width: 100%;
   margin: 1rem;
-`;
-
-const ListElement = styled.li`
-  margin: 0.5rem 1.1rem;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  text-decoration: ${props =>
-    props.status === "done" ? "line-through" : "none"};
 `;
 
 const Div = styled.div`
@@ -57,11 +41,12 @@ const Table = styled.table`
 const Button = styled.button`
   padding: 0.7rem;
   margin: 0.1rem;
-  background: #fffefc;
+  background: ${props => (props.bgred ? "#ffe6ea" : "#fffefc")};
   outline: 0;
   border: none;
   color: ${props => (props.red ? "red" : "#444")};
   border: 0.5px solid #444;
+  cursor: pointer;
 `;
 
 const Td = styled.td`
@@ -74,16 +59,22 @@ const ActionsTd = styled.td`
   background: ${props => (props.status === "done" ? "#e3f5fc" : "#fff ")};
 `;
 
+const FilterSection = styled.section``;
+
 class ListTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: "1"
+      filter: 1,
+      done: 1,
+      pending: 0,
+      all: 0
     };
   }
 
-  applyFilter = event => {
-    const newValue = event.target.value;
+  applyFilter = num => {
+    const newValue = num;
+    console.log(newValue);
     this.setState({ filter: newValue });
   };
 
@@ -124,15 +115,31 @@ class ListTodo extends Component {
       })
       .map((el, index) => {
         return (
-          <ListElement
-            onClick={() => {
-              this.props.completeTask(el);
-            }}
-            key={index}
-            status={el.status}
-          >
-            {el.name}
-          </ListElement>
+          <tr key={index}>
+            <Td status={el.status}>{el.name}</Td>
+            <Td status={el.status}>{el.description}</Td>
+            <ActionsTd status={el.status}>
+              <Button
+                onClick={() => {
+                  this.props.completeTask(el);
+                }}
+              >
+                <i class="fas fa-check-square"></i>
+              </Button>
+              <Button>
+                <i class="fas fa-edit"></i>
+              </Button>
+              <Button
+                onClick={() => {
+                  this.props.removeTask(el);
+                }}
+                red
+              >
+                {/* <i class="fas fa-trash-alt"></i> */}
+                <i class="fas fa-trash"></i>
+              </Button>
+            </ActionsTd>
+          </tr>
         );
       });
 
@@ -142,27 +149,43 @@ class ListTodo extends Component {
       })
       .map((el, index) => {
         return (
-          <ListElement
-            onClick={() => {
-              this.props.completeTask(el);
-            }}
-            key={index}
-            status={el.status}
-          >
-            {el.name}
-          </ListElement>
+          <tr key={index}>
+            <Td status={el.status}>{el.name}</Td>
+            <Td status={el.status}>{el.description}</Td>
+            <ActionsTd status={el.status}>
+              <Button
+                onClick={() => {
+                  this.props.completeTask(el);
+                }}
+              >
+                <i class="fas fa-check-square"></i>
+              </Button>
+              <Button>
+                <i class="fas fa-edit"></i>
+              </Button>
+              <Button
+                onClick={() => {
+                  this.props.removeTask(el);
+                }}
+                red
+              >
+                {/* <i class="fas fa-trash-alt"></i> */}
+                <i class="fas fa-trash"></i>
+              </Button>
+            </ActionsTd>
+          </tr>
         );
       });
 
     let list;
     switch (this.state.filter) {
-      case "1":
+      case 1:
         list = showAllItems;
         break;
-      case "2":
+      case 2:
         list = getPendingItems;
         break;
-      case "3":
+      case 3:
         list = getDoneItems;
     }
 
@@ -171,16 +194,52 @@ class ListTodo extends Component {
         <Title>
           <i class="fas fa-list-ul"></i> Tarefas
         </Title>
-        <Label for="filter">Filtro:</Label>
-        <Select
-          name="filter"
-          value={this.state.filter}
-          onChange={this.applyFilter}
-        >
-          <option value="1">Todas</option>
-          <option value="2">Pendentes</option>
-          <option value="3">Completas</option>
-        </Select>
+        <FilterSection>
+          <Button
+            onClick={() => {
+              this.applyFilter(1);
+              this.setState({ done: 0 });
+              this.setState({ pending: 0 });
+              this.setState({ all: 1 });
+            }}
+            value={this.state.all}
+            className={this.state.all === 1 ? "active" : ""}
+          >
+            Todas
+          </Button>
+          <Button
+            onClick={() => {
+              this.applyFilter(2);
+              this.setState({ done: 0 });
+              this.setState({ pending: 1 });
+              this.setState({ all: 0 });
+            }}
+            value={this.state.pending}
+            className={this.state.pending === 1 ? "active" : ""}
+          >
+            Pendentes
+          </Button>
+          <Button
+            onClick={() => {
+              this.applyFilter(3);
+              this.setState({ done: 1 });
+              this.setState({ pending: 0 });
+              this.setState({ all: 0 });
+            }}
+            value={this.state.done}
+            className={this.state.done === 1 ? "active" : ""}
+          >
+            Concluídas
+          </Button>
+          <Button
+            onClick={() => {
+              this.props.clearBoard();
+            }}
+            bgred
+          >
+            <i class="fas fa-minus-circle"></i> Limpar tarefas
+          </Button>
+        </FilterSection>
         <Line></Line>
         <Div>
           <Table>

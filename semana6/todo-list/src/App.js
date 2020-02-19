@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
     color: #f4f4f4;
     padding: 0.2rem;
   }
+
+  td {
+    padding: 0.2rem;
+  }
 `;
 
 class App extends Component {
@@ -69,6 +73,10 @@ class App extends Component {
     }
   };
 
+  clearBoard = () => {
+    this.setState({ todo: [] });
+  };
+
   removeTask = el => {
     const newList = this.state.todo.filter(elm => elm.id !== el.id);
     this.setState({ todo: newList });
@@ -88,6 +96,7 @@ class App extends Component {
               todos={this.state.todo}
               completeTask={this.completeTask}
               removeTask={this.removeTask}
+              clearBoard={this.clearBoard}
             />
           </SectionContainer>
         </MainContainer>
