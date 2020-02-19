@@ -29,14 +29,6 @@ const Select = styled.select`
   text-transform: uppercase;
 `;
 
-const List = styled.ul`
-  margin: 0.75rem;
-  align-self: flex-start;
-  overflow-y: auto;
-  width: 100%;
-  height: 230px;
-`;
-
 const Line = styled.hr`
   width: 100%;
   margin: 1rem;
@@ -50,34 +42,44 @@ const ListElement = styled.li`
     props.status === "done" ? "line-through" : "none"};
 `;
 
+const Div = styled.div`
+  width: 100%;
+  height: 240px;
+  overflow-y: scroll;
+`;
+
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #444.;
+`;
+
+const Button = styled.button`
+  padding: 0.7rem;
+  margin: 0.1rem;
+  background: #fffefc;
+  outline: 0;
+  border: none;
+  color: ${props => (props.red ? "red" : "#444")};
+  border: 0.5px solid #444;
+`;
+
+const Td = styled.td`
+  text-decoration: ${props =>
+    props.status === "done" ? "line-through" : "none"};
+  background: ${props => (props.status === "done" ? "#e3f5fc" : "#fff ")};
+`;
+
+const ActionsTd = styled.td`
+  background: ${props => (props.status === "done" ? "#e3f5fc" : "#fff ")};
+`;
+
 class ListTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       filter: "1"
     };
-  }
-
-  // componentDidMount() {
-  //   console.log("Acabei de ser montado!");
-  // }
-
-  // componentDidUpdate() {
-  //   const dadosArmazenadosString = localStorage.getItem("valoresDosInputs");
-  //   const novoEstado = JSON.parse(dadosArmazenadosString);
-  //   this.setState(novoEstado);
-
-  //   const state = JSON.stringify(this.state);
-  //   localStorage.setItem("todos", state);
-
-  //   console.log("Componente atualizado");
-  //   console.log(estadoComoString);
-  // }
-
-  componentWillUnmount() {
-    // console.log("Epa, estou indo embora.");
-    // const estadoComoString = JSON.stringify(this.state);
-    // localStorage.setItem("valoresDosInputs", estadoComoString);
   }
 
   applyFilter = event => {
@@ -88,15 +90,31 @@ class ListTodo extends Component {
   render() {
     const showAllItems = this.props.todos.map((el, index) => {
       return (
-        <ListElement
-          onClick={() => {
-            this.props.completeTask(el);
-          }}
-          key={index}
-          status={el.status}
-        >
-          {el.name}
-        </ListElement>
+        <tr key={index}>
+          <Td status={el.status}>{el.name}</Td>
+          <Td status={el.status}>{el.description}</Td>
+          <ActionsTd status={el.status}>
+            <Button
+              onClick={() => {
+                this.props.completeTask(el);
+              }}
+            >
+              <i class="fas fa-check-square"></i>
+            </Button>
+            <Button>
+              <i class="fas fa-edit"></i>
+            </Button>
+            <Button
+              onClick={() => {
+                this.props.removeTask(el);
+              }}
+              red
+            >
+              {/* <i class="fas fa-trash-alt"></i> */}
+              <i class="fas fa-trash"></i>
+            </Button>
+          </ActionsTd>
+        </tr>
       );
     });
 
@@ -164,7 +182,18 @@ class ListTodo extends Component {
           <option value="3">Completas</option>
         </Select>
         <Line></Line>
-        <List>{list}</List>
+        <Div>
+          <Table>
+            <thead>
+              <tr>
+                <th width="30%">Nome</th>
+                <th>Descrição</th>
+                <th width="22%">Açoes</th>
+              </tr>
+            </thead>
+            <tbody>{list}</tbody>
+          </Table>
+        </Div>
       </Article>
     );
   }

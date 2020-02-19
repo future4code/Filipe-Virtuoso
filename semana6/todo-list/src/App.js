@@ -7,6 +7,19 @@ import Footer from "./Components/Footer/Footer";
 import SectionContainer from "./Components/SectionContainer/SectionContainer";
 import AddTodo from "./Components/AddTodo/AddTodo";
 import ListTodo from "./Components/ListTodo/ListTodo";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  table, th, td {
+    border: 1px solid #b8b8b8;
+  }
+
+  th {
+    background: #444;
+    color: #f4f4f4;
+    padding: 0.2rem;
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -56,6 +69,11 @@ class App extends Component {
     }
   };
 
+  removeTask = el => {
+    const newList = this.state.todo.filter(elm => elm.id !== el.id);
+    this.setState({ todo: newList });
+  };
+
   render() {
     console.log(this.state);
     return (
@@ -69,10 +87,12 @@ class App extends Component {
             <ListTodo
               todos={this.state.todo}
               completeTask={this.completeTask}
+              removeTask={this.removeTask}
             />
           </SectionContainer>
         </MainContainer>
         <Footer />
+        <GlobalStyle />
       </div>
     );
   }
