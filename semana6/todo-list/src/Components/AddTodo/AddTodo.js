@@ -73,6 +73,10 @@ class AddTodo extends Component {
     this.setState({ description: event.target.value });
   };
 
+  clearForm = () => {
+    this.setState({ name: "", description: "" });
+  };
+
   render() {
     return (
       <Article>
@@ -97,11 +101,12 @@ class AddTodo extends Component {
           <Button
             onClick={() => {
               this.props.addItem(this.state.name, this.state.description);
+              this.setState({ name: "", description: "" });
             }}
           >
             <i class="fas fa-plus-circle"></i> Adicionar
           </Button>
-          <Button>
+          <Button onClick={this.clearForm}>
             <i class="fas fa-eraser"></i> Limpar campos
           </Button>
         </ButtonArea>

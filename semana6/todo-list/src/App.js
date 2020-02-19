@@ -16,16 +16,48 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    const newState = JSON.parse(localStorage.getItem("todos"));
+    this.setState(newState);
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("todos", JSON.stringify(this.state));
+  }
+
+  compone;
+
   addItem = (name, description) => {
     const newItem = [
       ...this.state.todo,
-      { name: name, description: description }
+      {
+        id: Date.now(),
+        name: name,
+        description: description,
+        status: "pending"
+      }
     ];
     this.setState({ todo: newItem });
-    console.log(this.state.todo);
+  };
+
+  completeTask = el => {
+    if (el.status === "pending") {
+      this.setState(prevState => ({
+        todo: prevState.todo.map(elm =>
+          elm.id === el.id ? { ...elm, status: "done" } : elm
+        )
+      }));
+    } else if (el.status === "done") {
+      this.setState(prevState => ({
+        todo: prevState.todo.map(elm =>
+          elm.id === el.id ? { ...elm, status: "pending" } : elm
+        )
+      }));
+    }
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         <Navbar />
@@ -34,7 +66,10 @@ class App extends Component {
             <AddTodo addItem={this.addItem} />
           </SectionContainer>
           <SectionContainer>
-            <ListTodo />
+            <ListTodo
+              todos={this.state.todo}
+              completeTask={this.completeTask}
+            />
           </SectionContainer>
         </MainContainer>
         <Footer />
