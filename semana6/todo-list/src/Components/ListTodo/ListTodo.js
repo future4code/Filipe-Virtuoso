@@ -26,7 +26,7 @@ const Line = styled.hr`
   margin: 1rem;
 `;
 
-const Div = styled.div`
+const TableSection = styled.section`
   width: 100%;
   height: 240px;
   overflow-y: scroll;
@@ -43,7 +43,6 @@ const Button = styled.button`
   margin: 0.1rem;
   background: ${props => (props.bgred ? "#ffe6ea" : "#fffefc")};
   outline: 0;
-  border: none;
   color: ${props => (props.red ? "red" : "#444")};
   border: 0.5px solid #444;
   cursor: pointer;
@@ -185,6 +184,8 @@ class ListTodo extends Component {
         list = getDoneItems;
     }
 
+    console.log(this.props.todos.length);
+
     return (
       <Article>
         <Title>
@@ -231,7 +232,7 @@ class ListTodo extends Component {
           </Button>
         </FilterSection>
         <Line></Line>
-        <Div>
+        <TableSection>
           <Table>
             <thead>
               <tr>
@@ -242,7 +243,7 @@ class ListTodo extends Component {
             </thead>
             <tbody>{list}</tbody>
           </Table>
-        </Div>
+        </TableSection>
       </Article>
     );
   }
