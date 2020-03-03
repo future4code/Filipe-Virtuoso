@@ -24,7 +24,6 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/future4code/Filipe-Virtuoso">
   </a>
 
-  <img alt="GitHub license" src="">
 </p>
 
 ## :rocket: Tecnologias
@@ -33,6 +32,7 @@
 - CSS Grid
 - Vanilla Javascript
 - React
+- NodeJS
 - VsCode
 
 ## :pushpin: Projetos
@@ -41,6 +41,10 @@
 - Portfolio
 - FutureTube(https://lfvirtuoso.github.io/futureTube/)
 - Blackjack
+- About-me
+- Future-tube
+- Instagram-feed
+- Future-forms
 
 ---
 
