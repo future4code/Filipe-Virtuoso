@@ -35,6 +35,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   width: 100%;
   padding: 0.75rem 0;
+  padding-left: 0.25rem;
   margin: 0.75rem;
   border-radius: 5px;
   border: 1px solid #444;
