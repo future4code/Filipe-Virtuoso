@@ -1,15 +1,32 @@
 import React from 'react';
 import * as S from './styled';
 
-const Navbar = () => {
+const Navbar = props => {
   return (
     <S.NavbarWrapper>
       <S.Title>
-        <i class="far fa-address-card"></i> Cadastro
+        <i className="far fa-address-card"></i> Cadastro
       </S.Title>
       <S.Menu>
         <S.Item>
-          <S.Link href="">Usuários</S.Link>
+          <S.Link
+            href="#"
+            onClick={() => {
+              props.showRegister();
+            }}
+          >
+            Cadastro
+          </S.Link>
+        </S.Item>
+        <S.Item>
+          <S.Link
+            href="#"
+            onClick={() => {
+              props.showUsers();
+            }}
+          >
+            Usuários
+          </S.Link>
         </S.Item>
         <S.Item>
           <S.Link
@@ -23,9 +40,6 @@ const Navbar = () => {
           <S.Link href="https://twitter.com/lfvirtuoso" target="_blank">
             @lfvirtuoso
           </S.Link>
-        </S.Item>
-        <S.Item>
-          <S.Link href="#">Sobre</S.Link>
         </S.Item>
       </S.Menu>
     </S.NavbarWrapper>

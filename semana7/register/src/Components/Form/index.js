@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as S from './styled';
+import axios from 'axios';
 
 class Form extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Form extends Component {
       <S.FormWrapper>
         <S.Article>
           <S.Title>
-            <i class="fas fa-user"></i> Informe os dados
+            <i className="fas fa-user"></i> Informe os dados
           </S.Title>
           <S.Label>Nome:</S.Label>
           <S.Input
