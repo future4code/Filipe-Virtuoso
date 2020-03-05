@@ -4,7 +4,7 @@ export const FormWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 60%;
+  height: 70%;
   width: 40%;
   background: #fff;
   border: 1px dotted #444;
@@ -65,4 +65,12 @@ export const Button = styled.button`
     background: #2887d4;
     color: #f4f4f4;
   }
+`;
+
+export const Info = styled.div`
+  background: ${props => (props.green ? '#d1ffdd' : '#ffe0e3')};
+  margin: 0.75rem;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
 `;

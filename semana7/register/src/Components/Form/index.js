@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import * as S from './styled';
 import axios from 'axios';
 
+const baseUrl = 'https://us-central1-future4-users.cloudfunctions.net/api';
+
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      email: ''
+      email: '',
+      infoMessage: { msg: '', error: false }
     };
   }
 
@@ -23,10 +26,54 @@ class Form extends Component {
     this.setState({ name: '', email: '' });
   };
 
+  addUser = () => {
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email
+    };
+
+    axios
+      .post(`${baseUrl}/users/createUser`, newUser, {
+        headers: {
+          'api-token': 'string'
+        }
+      })
+      .then(response => {
+        console.log(response);
+        this.setState({
+          name: '',
+          email: '',
+          infoMessage: { msg: 'Usuário cadastrado com sucesso!', error: false }
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({
+          infoMessage: {
+            msg: 'Não foi possível efetuar o cadastro.',
+            error: true
+          }
+        });
+      });
+  };
+
   render() {
+    let info;
+    if (this.state.infoMessage.msg) {
+      switch (this.state.infoMessage.error) {
+        case false:
+          info = <S.Info green>{this.state.infoMessage.msg}</S.Info>;
+          break;
+        case true:
+          info = <S.Info>{this.state.infoMessage.msg}</S.Info>;
+          break;
+      }
+    }
+
     return (
       <S.FormWrapper>
         <S.Article>
+          {this.state.infoMessage.msg ? info : null}
           <S.Title>
             <i className="fas fa-user"></i> Informe os dados
           </S.Title>
@@ -46,7 +93,7 @@ class Form extends Component {
           />
         </S.Article>
         <S.ButtonWrapper>
-          <S.Button>Enviar</S.Button>
+          <S.Button onClick={this.addUser}>Enviar</S.Button>
           <S.Button clear onClick={this.clearForm}>
             Limpar campos
           </S.Button>

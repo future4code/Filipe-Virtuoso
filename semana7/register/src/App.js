@@ -25,7 +25,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.page);
     let page;
     switch (this.state.page) {
       case 1:
