@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as S from './styled';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const baseUrl = 'https://us-central1-future4-users.cloudfunctions.net/api';
 
@@ -107,5 +108,10 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+};
 
 export default Form;

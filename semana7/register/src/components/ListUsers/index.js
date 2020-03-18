@@ -115,4 +115,8 @@ class ListUsers extends Component {
   }
 }
 
+ListUsers.propTypes = {
+  users: PropTypes.array
+};
+
 export default ListUsers;
