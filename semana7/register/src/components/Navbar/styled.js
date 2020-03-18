@@ -14,6 +14,8 @@ export const Title = styled.h1`
   border-bottom: 2px dotted #f4f4f4;
   padding-bottom: 0.2rem;
   margin: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 `;
 
 export const Menu = styled.ul`

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import GlobalStyles from '../styles/global';
 // Components
-import Navbar from './Components/Navbar/';
-import MainContainer from './Components/MainContainer';
-import Form from './Components/Form';
+import Navbar from './Navbar/';
+import MainContainer from './MainContainer';
+import Form from './Form';
+import ListUsers from './ListUsers';
 
 class App extends Component {
   constructor(props) {
@@ -31,11 +33,14 @@ class App extends Component {
         page = <Form />;
         break;
       case 2:
-        page = <h1>It works!</h1>;
+        page = <ListUsers />;
         break;
+      default:
+        page = null;
     }
     return (
       <div className="App">
+        <GlobalStyles />
         <Navbar showUsers={this.showUsers} showRegister={this.showRegister} />
         <MainContainer>{page}</MainContainer>
       </div>

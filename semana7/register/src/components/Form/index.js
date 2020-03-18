@@ -23,7 +23,11 @@ class Form extends Component {
   };
 
   clearForm = () => {
-    this.setState({ name: '', email: '' });
+    this.setState({
+      name: '',
+      email: '',
+      infoMessage: { msg: '', error: false }
+    });
   };
 
   addUser = () => {
@@ -39,7 +43,6 @@ class Form extends Component {
         }
       })
       .then(response => {
-        console.log(response);
         this.setState({
           name: '',
           email: '',
@@ -67,6 +70,8 @@ class Form extends Component {
         case true:
           info = <S.Info>{this.state.infoMessage.msg}</S.Info>;
           break;
+        default:
+          info = null;
       }
     }
 

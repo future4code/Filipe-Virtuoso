@@ -52,8 +52,8 @@ export const ButtonWrapper = styled.section`
 export const Button = styled.button`
   border: none;
   outline: 0;
-  padding: 1rem;
-  width: 30%;
+  padding: 1.3rem;
+  width: 35%;
   margin-right: 0.3rem;
   background: ${props => (props.clear ? '#ededed' : '#57c4fa')};
   color: ${props => (props.clear ? '#444' : '#f4f4f4')};
