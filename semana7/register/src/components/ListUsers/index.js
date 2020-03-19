@@ -148,8 +148,6 @@ class ListUsers extends Component {
         );
       });
     }
-
-    console.log(this.state.searchedUser);
     return (
       <S.UsersWrapper>
         {this.state.infoMessage.msg ? info : null}
