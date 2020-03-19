@@ -5,25 +5,27 @@ import Navbar from './Navbar/';
 import MainContainer from './MainContainer';
 import Form from './Form';
 import ListUsers from './ListUsers';
+import EditUser from './EditUser';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1
+      page: 1,
+      userId: 0
     };
   }
 
-  showUsers = () => {
-    if (this.state.page < 2) {
-      this.setState({ page: this.state.page + 1 });
-    }
+  showRegister = () => {
+    this.setState({ page: 1 });
   };
 
-  showRegister = () => {
-    if (this.state.page > 1) {
-      this.setState({ page: this.state.page - 1 });
-    }
+  showUsers = () => {
+    this.setState({ page: 2 });
+  };
+
+  showUserInfo = id => {
+    this.setState({ page: 3, userId: id });
   };
 
   render() {
@@ -33,7 +35,10 @@ class App extends Component {
         page = <Form />;
         break;
       case 2:
-        page = <ListUsers />;
+        page = <ListUsers showUserInfo={this.showUserInfo} />;
+        break;
+      case 3:
+        page = <EditUser userId={this.state.userId} showUsers={this.showUsers} />;
         break;
       default:
         page = null;

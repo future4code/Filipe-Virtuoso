@@ -17,9 +17,6 @@ class ListUsers extends Component {
     this.getAllUsers();
   }
 
-  componentDidUpdate() {
-    this.getAllUsers();
-  }
 
   getAllUsers = async () => {
     try {
@@ -60,6 +57,7 @@ class ListUsers extends Component {
     }
   };
 
+
   render() {
     let info;
     if (this.state.infoMessage.msg) {
@@ -81,7 +79,11 @@ class ListUsers extends Component {
           <td>{el.id}</td>
           <td>{el.name}</td>
           <td>
-            <S.Button>
+            <S.Button
+              onClick={() => {
+                this.props.showUserInfo(el.id);
+              }}
+            >
               <i className="fas fa-edit"></i>
             </S.Button>
             <S.Button
