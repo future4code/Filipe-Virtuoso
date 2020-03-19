@@ -64,6 +64,7 @@ class ListUsers extends Component {
         this.setState({
           infoMessage: { msg: 'Usuário removido com sucesso!', error: false }
         });
+        this.getAllUsers();
       } catch (error) {
         this.setState({
           infoMessage: {
