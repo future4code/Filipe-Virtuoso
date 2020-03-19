@@ -9,6 +9,8 @@ class ListUsers extends Component {
     super(props);
     this.state = {
       users: [],
+      search: '',
+      searchedUser: [],
       infoMessage: { msg: '', error: false }
     };
   }
@@ -16,7 +18,6 @@ class ListUsers extends Component {
   componentDidMount() {
     this.getAllUsers();
   }
-
 
   getAllUsers = async () => {
     try {
@@ -27,6 +28,23 @@ class ListUsers extends Component {
         }
       });
       this.setState({ users: response.data.result });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  searchUser = async name => {
+    try {
+      const response = await axios.get(`${baseUrl}/users/searchUsers`, {
+        headers: {
+          'api-token': 'string',
+          'Content-Type': 'application/json'
+        },
+        params: {
+          name: name
+        }
+      });
+      this.setState({ searchedUser: response.data.result });
     } catch (error) {
       console.error(error);
     }
@@ -57,6 +75,9 @@ class ListUsers extends Component {
     }
   };
 
+  changeSearch = event => {
+    this.setState({ search: event.target.value });
+  };
 
   render() {
     let info;
@@ -99,9 +120,53 @@ class ListUsers extends Component {
       );
     });
 
+    let user;
+    if (this.state.searchedUser) {
+      user = this.state.searchedUser.map((el, index) => {
+        return (
+          <tr key={index}>
+            <td>{el.id}</td>
+            <td>{el.name}</td>
+            <td>
+              <S.Button
+                onClick={() => {
+                  this.props.showUserInfo(el.id);
+                }}
+              >
+                <i className="fas fa-edit"></i>
+              </S.Button>
+              <S.Button
+                onClick={() => {
+                  this.removeUser(el.id);
+                }}
+                red
+              >
+                <i className="fas fa-trash"></i>
+              </S.Button>
+            </td>
+          </tr>
+        );
+      });
+    }
+
+    console.log(this.state.searchedUser);
     return (
       <S.UsersWrapper>
         {this.state.infoMessage.msg ? info : null}
+        <S.SearchWrapper>
+          <S.Input
+            placeholder="Informe um nome de usuário"
+            value={this.state.search}
+            onChange={this.changeSearch}
+          />
+          <S.SearchButton
+            onClick={() => {
+              this.searchUser(this.state.search);
+            }}
+          >
+            <i className="fas fa-search"></i>
+          </S.SearchButton>
+        </S.SearchWrapper>
         <S.Table>
           <thead>
             <tr>
@@ -110,7 +175,7 @@ class ListUsers extends Component {
               <th width="15%">Açoes</th>
             </tr>
           </thead>
-          <tbody>{showUsers}</tbody>
+          <tbody>{this.state.searchedUser.length > 0 ? user : showUsers}</tbody>
         </S.Table>
       </S.UsersWrapper>
     );

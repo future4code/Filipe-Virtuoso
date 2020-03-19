@@ -44,12 +44,11 @@ class UserEdit extends Component {
   };
 
   editUser = async () => {
-
     const newUser = {
-      "user": {
-        "id": this.state.user.id,
-        "name": this.state.name ? this.state.name : this.state.user.name,
-        "email": this.state.email ? this.state.email : this.state.user.email
+      user: {
+        id: this.state.user.id,
+        name: this.state.name ? this.state.name : this.state.user.name,
+        email: this.state.email ? this.state.email : this.state.user.email
       }
     };
     try {
@@ -63,7 +62,6 @@ class UserEdit extends Component {
     } catch (error) {
       console.error(error);
     }
-
   };
 
   changeName = event => {

@@ -37,13 +37,34 @@ export const Info = styled.div`
   border-radius: 6px;
 `;
 
+export const SearchWrapper = styled.section`
+  display: flex;
+  width: 100%;
+`;
+
 export const Input = styled.input`
   width: 100%;
   padding: 0.75rem 0;
   padding-left: 0.25rem;
-  margin: 0.75rem;
-  border-radius: 5px;
-  border: 1px solid #444;
+  margin-bottom: 0.75rem;
+  border: none;
+  border-bottom: 2px solid #444;
   outline: 0;
   width: 100%;
+  font-size: 0.9rem;
+`;
+
+export const SearchButton = styled.button`
+  width: 20%;
+  background: #c2f3ff;
+  border: none;
+  border-bottom: 2px solid #444;
+  outline: 0;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #2887d4;
+    color: #f4f4f4;
+  }
 `;
