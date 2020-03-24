@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const FormWrapper = styled.section`
+export const SectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70%;
-  width: 40%;
+  height: 80%;
+  width: 80%;
   background: #fff;
   border: 1px dotted #444;
   border-radius: 5px;
@@ -52,8 +52,8 @@ export const ButtonWrapper = styled.section`
 export const Button = styled.button`
   border: none;
   outline: 0;
-  padding: 1rem;
-  width: 30%;
+  padding: 1.3rem;
+  width: 35%;
   margin-right: 0.3rem;
   background: ${props => (props.clear ? '#ededed' : '#57c4fa')};
   color: ${props => (props.clear ? '#444' : '#f4f4f4')};

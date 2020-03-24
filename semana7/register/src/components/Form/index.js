@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as S from './styled';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const baseUrl = 'https://us-central1-future4-users.cloudfunctions.net/api';
 
@@ -23,7 +24,11 @@ class Form extends Component {
   };
 
   clearForm = () => {
-    this.setState({ name: '', email: '' });
+    this.setState({
+      name: '',
+      email: '',
+      infoMessage: { msg: '', error: false }
+    });
   };
 
   addUser = () => {
@@ -39,7 +44,6 @@ class Form extends Component {
         }
       })
       .then(response => {
-        console.log(response);
         this.setState({
           name: '',
           email: '',
@@ -67,6 +71,8 @@ class Form extends Component {
         case true:
           info = <S.Info>{this.state.infoMessage.msg}</S.Info>;
           break;
+        default:
+          info = null;
       }
     }
 
@@ -102,5 +108,10 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string
+};
 
 export default Form;
