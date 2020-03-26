@@ -26,6 +26,7 @@ class Navbar extends Component {
             <S.SearchButton
               onClick={() => {
                 this.props.getPlaylistById(this.state.search);
+                this.setState({ search: '' });
               }}
             >
               <i className="fas fa-search"></i>

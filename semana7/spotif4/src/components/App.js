@@ -20,18 +20,22 @@ export class App extends Component {
   }
 
   getPlaylistById = async name => {
-    try {
-      const response = await axios.get(
-        `${baseUrl}/playlists/searchPlaylist?playlistName=${name}`,
-        {
-          headers: {
-            auth: 'string'
+    if (name) {
+      try {
+        const response = await axios.get(
+          `${baseUrl}/playlists/searchPlaylist?playlistName=${name}`,
+          {
+            headers: {
+              auth: 'string'
+            }
           }
-        }
-      );
-      this.setState({ playlists: response.data.result.playlist });
-    } catch (error) {
-      console.log(error);
+        );
+        this.setState({ playlists: response.data.result.playlist });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      this.getPlaylists();
     }
   };
 
