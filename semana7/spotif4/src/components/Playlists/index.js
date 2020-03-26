@@ -1,85 +1,24 @@
 import React, { Component } from 'react';
 import * as S from './styled';
-import axios from 'axios';
-
-const baseUrl = 'https://us-central1-spotif4.cloudfunctions.net/api';
 
 class Playlists extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playlists: [],
-      name: '',
-      search: ''
+      name: ''
     };
   }
 
   componentDidMount() {
-    this.getPlaylists();
+    this.props.getPlaylists();
   }
-
-  getPlaylists = async () => {
-    try {
-      const response = await axios.get(`${baseUrl}/playlists/getAllPlaylists`, {
-        headers: {
-          auth: 'string'
-        }
-      });
-      this.setState({ playlists: response.data.result.list });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  createPlaylist = () => {
-    axios
-      .post(
-        `${baseUrl}/playlists/createPlaylist`,
-        { name: this.state.name },
-        {
-          headers: {
-            auth: 'string'
-          }
-        }
-      )
-      .then(() => {
-        this.setState({ name: '' });
-        this.getPlaylists();
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
-  deletePlaylist = async id => {
-    const deletePlaylist = window.confirm(
-      'Tem certeza de que deseja apagar essa playlist?'
-    );
-
-    if (deletePlaylist) {
-      try {
-        await axios.delete(
-          `${baseUrl}/playlists/deletePlaylist?playlistId=${id}`,
-          {
-            headers: {
-              auth: 'string'
-            }
-          }
-        );
-        alert('Playlist deletada com sucesso');
-        this.getPlaylists();
-      } catch (error) {
-        console.log(error.response);
-      }
-    }
-  };
 
   getNameInput = event => {
     this.setState({ name: event.target.value });
   };
 
   render() {
-    const showAllPlaylists = this.state.playlists.map((el, index) => {
+    const showAllPlaylists = this.props.playlists.map((el, index) => {
       return (
         <tr key={index}>
           <td>{el.name}</td>
@@ -94,7 +33,7 @@ class Playlists extends Component {
             <S.Action
               bgred
               onClick={() => {
-                this.deletePlaylist(el.id);
+                this.props.deletePlaylist(el.id);
               }}
             >
               <i className="fas fa-trash"></i>
@@ -117,7 +56,14 @@ class Playlists extends Component {
               value={this.state.name}
               onChange={this.getNameInput}
             ></S.CreateInput>
-            <S.Button onClick={this.createPlaylist}>Criar</S.Button>
+            <S.Button
+              onClick={() => {
+                this.props.createPlaylist(this.state.name);
+                this.setState({ name: '' });
+              }}
+            >
+              Criar
+            </S.Button>
           </S.FormWrapper>
 
           <S.TableWrapper>
