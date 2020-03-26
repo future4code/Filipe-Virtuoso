@@ -63,10 +63,22 @@ table, th, td {
 }
 
 th {
-	background: #444;
-	color: #f4f4f4;
+	background: #f4f4f4;
+	color: #444;
 	padding: 0.2rem;
 	font-weight: bold;
+}
+
+tbody {
+	background-color: rgba(227, 246, 255, 0.3);
+}
+
+tr {
+	text-align: center;
+}
+
+audio {
+	height: 3vh;
 }
 
 td {

@@ -68,3 +68,29 @@ export const Link = styled.a`
     color: #444;
   }
 `;
+
+export const SearchWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SearchInput = styled.input`
+  padding: 0.75rem;
+  width: 480px;
+  border: none;
+  outline: 0;
+`;
+
+export const SearchButton = styled.button`
+  padding: 0.75rem;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  background: #1c8899;
+  color: #f4f4f4;
+
+  &:hover {
+    background: #02505c;
+  }
+`;
