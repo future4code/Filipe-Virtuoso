@@ -45,7 +45,7 @@ class Navbar extends Component {
         {searchForm}
         <S.MenuWrapper>
           <S.Item onClick={this.props.goToCreatePage}>
-            <S.CustomBG>Criar playlist</S.CustomBG>{' '}
+            <S.CustomBG>Criar playlist</S.CustomBG>
           </S.Item>
           <S.Item>
             <S.Link
