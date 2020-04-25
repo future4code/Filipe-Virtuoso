@@ -1,12 +1,24 @@
 import { readFileSync, writeFileSync } from 'fs';
 import * as moment from 'moment';
+moment.locale('pt-br');
 
 const operationType: string = process.argv[5];
 const name: string = process.argv[6];
 const cpf: string = process.argv[7];
 const data: string = process.argv[8];
 
+const value: number = Number(process.argv[6]);
+const description: string = process.argv[7];
+let paymentDate: any = process.argv[8];
+const accountCpf: string = process.argv[9];
+
 let accounts = JSON.parse(readFileSync('contas.json').toString());
+
+type extract = {
+  value: number;
+  description: string;
+  paymentDate: moment.Moment;
+};
 
 type user = {
   user: {
@@ -79,5 +91,42 @@ switch (operationType) {
     }
 
     validateCpf(cpf) ? getBalance(cpf) : console.log('CPF inválido!');
+    break;
+  case 'payBill':
+    if (!value && !description && !accountCpf) {
+      console.log('Impossível realizar o pagamento! Verifique as informações.');
+      break;
+    }
+
+    let currentDate: moment.Moment = moment();
+    let account = accounts.filter(
+      (account: user) => account.user.cpf === accountCpf
+    );
+
+    if (currentDate.diff(moment(paymentDate, 'DD/MM/YYYY'), 'days') > 0) {
+      console.log('Não é possível realizar o pagamento');
+      break;
+    }
+
+    if (value > account[0].balance) {
+      console.log('Saldo insuficiente!');
+      break;
+    }
+
+    if (!paymentDate) {
+      paymentDate = currentDate.format('DD/MM/YYYY');
+    }
+
+    const newPayment: extract = {
+      value,
+      description,
+      paymentDate,
+    };
+
+    account[0].balance -= value;
+    account[0].extract.push(newPayment);
+    writeFileSync('contas.json', JSON.stringify(account, null, 2));
+    console.log('Pagamento aprovado!');
+
     break;
 }
