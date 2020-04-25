@@ -18,10 +18,24 @@ type user = {
   extract: any[];
 };
 
-if (operationType === 'createAccount') {
-  if (!name || !cpf || !data) {
-    console.log('É preciso informar os documentos!');
+// Validate
+function validateCpf(cpf: string): any {
+  if (accounts.length === 0) {
+    return false;
+  } else if (accounts.filter((el: any) => el.user.cpf === cpf).length > 0) {
+    return true;
   } else {
+    return false;
+  }
+}
+
+switch (operationType) {
+  case 'createAccount':
+    if (!name || !cpf || !data) {
+      console.log('É preciso informar os documentos!');
+      break;
+    }
+
     let newAccount: user = {
       user: {
         name,
@@ -31,16 +45,6 @@ if (operationType === 'createAccount') {
       balance: 0,
       extract: [],
     };
-
-    function validateCpf(cpf: string): any {
-      if (accounts.length === 0) {
-        return false;
-      } else if (accounts.filter((el: any) => el.user.cpf === cpf).length > 0) {
-        return true;
-      } else {
-        return false;
-      }
-    }
 
     function createAccount(): void {
       try {
@@ -60,5 +64,20 @@ if (operationType === 'createAccount') {
     } else {
       console.log('Você precisa ser maior de 18 anos para criar uma conta!');
     }
-  }
+    break;
+  case 'getBalance':
+    if (!name || !cpf) {
+      console.log('Infome os dados necessários');
+      break;
+    }
+
+    function getBalance(cpf: string): void {
+      console.log(
+        'Saldo atual é: R$ ' +
+          accounts.filter((el: user) => el.user.cpf === cpf)[0].balance
+      );
+    }
+
+    validateCpf(cpf) ? getBalance(cpf) : console.log('CPF inválido!');
+    break;
 }
