@@ -1,0 +1,14 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "10reais": "tsc && node build/index.js --target es6"
+  },
+  "author": "Filipe Virtuoso <lfvirtuoso@gmail.com> (htpps://filipevirtuoso.com.br)",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^13.13.2",
+    "moment": "^2.24.0"
+  }
+}
