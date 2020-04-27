@@ -2,15 +2,20 @@ import { readFileSync, writeFileSync } from 'fs';
 import * as moment from 'moment';
 moment.locale('pt-br');
 
-const operationType: string = process.argv[5];
-const name: string = process.argv[6];
-const cpf: string = process.argv[7];
-const data: string = process.argv[8];
+// createAccount
+const operationType: string = process.argv[4];
+const name: string = process.argv[5];
+const cpf: string = process.argv[6];
+const data: string = process.argv[7];
 
-const value: number = Number(process.argv[6]);
-const description: string = process.argv[7];
-let paymentDate: any = process.argv[8];
-const accountCpf: string = process.argv[9];
+// PayBill
+const value: number = Number(process.argv[5]);
+const description: string = process.argv[6];
+let paymentDate: any = process.argv[7];
+const accountCpf: string = process.argv[8];
+
+// addBalance
+const addValue: number = Number(process.argv[7]);
 
 let accounts = JSON.parse(readFileSync('contas.json').toString());
 
@@ -93,7 +98,7 @@ switch (operationType) {
     validateCpf(cpf) ? getBalance(cpf) : console.log('CPF inválido!');
     break;
   case 'payBill':
-    if (!value && !description && !accountCpf) {
+    if (!value || !description || !accountCpf) {
       console.log('Impossível realizar o pagamento! Verifique as informações.');
       break;
     }
@@ -127,6 +132,29 @@ switch (operationType) {
     account[0].extract.push(newPayment);
     writeFileSync('contas.json', JSON.stringify(account, null, 2));
     console.log('Pagamento aprovado!');
-
     break;
+  case 'addBalance':
+    if (!name || !cpf || !addValue) {
+      console.log(
+        'informações incompletas, não foi possível realizar a operação.'
+      );
+      break;
+    }
+
+    function addBalance(value: number): void {
+      try {
+        let account = accounts.filter(
+          (account: user) => account.user.cpf === cpf
+        );
+        account[0].balance += value;
+        writeFileSync('contas.json', JSON.stringify(account, null, 2));
+        console.log('Novo saldo: R$: ' + account[0].balance);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    validateCpf(cpf)
+      ? addBalance(addValue)
+      : console.log('Informe um cpf válido!');
 }

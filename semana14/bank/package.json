@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "10reais": "tsc && node build/index.js --target es6"
+    "start": "tsc && node build/index.js --target es6"
   },
   "author": "Filipe Virtuoso <lfvirtuoso@gmail.com> (htpps://filipevirtuoso.com.br)",
   "license": "MIT",

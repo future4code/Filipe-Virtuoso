@@ -2,19 +2,10 @@
   {
     "user": {
       "name": "Luiz",
-      "cpf": "111111",
+      "cpf": "222223",
       "data": "10/01/1992"
     },
-    "balance": 0,
-    "extract": []
-  },
-  {
-    "user": {
-      "name": "Luiz",
-      "cpf": "22222",
-      "data": "10/01/1992]"
-    },
-    "balance": 0,
+    "balance": 20,
     "extract": []
   }
 ]
