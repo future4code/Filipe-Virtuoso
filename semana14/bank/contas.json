@@ -5,7 +5,16 @@
       "cpf": "222223",
       "data": "10/01/1992"
     },
-    "balance": 20,
+    "balance": 2,
+    "extract": []
+  },
+  {
+    "user": {
+      "name": "Filipe",
+      "cpf": "108835",
+      "data": "10/01/1992"
+    },
+    "balance": 3,
     "extract": []
   }
 ]

@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import * as moment from 'moment';
+import { Z_NO_COMPRESSION } from 'zlib';
 moment.locale('pt-br');
 
 // createAccount
@@ -16,6 +17,11 @@ const accountCpf: string = process.argv[8];
 
 // addBalance
 const addValue: number = Number(process.argv[7]);
+
+// transfer
+const recipientName: string = process.argv[7];
+const recipientCPF: string = process.argv[8];
+const sentValue: number = Number(process.argv[9]);
 
 let accounts = JSON.parse(readFileSync('contas.json').toString());
 
@@ -157,4 +163,45 @@ switch (operationType) {
     validateCpf(cpf)
       ? addBalance(addValue)
       : console.log('Informe um cpf válido!');
+    break;
+  case 'transfer':
+    if (!name || !cpf || !recipientName || !recipientCPF || !sentValue) {
+      console.log('Informe os dados necessários corretamente!');
+      break;
+    }
+
+    function transferMoney(value: number): void {
+      let account = accounts.filter(
+        (account: user) => account.user.cpf === cpf
+      );
+      let recipientAccount = accounts.filter(
+        (account: user) => account.user.cpf === recipientCPF
+      );
+
+      if (account[0].balance < value) {
+        console.log('Saldo insuficente!');
+      } else {
+        account[0].balance -= Number(value);
+        recipientAccount[0].balance += Number(value);
+        console.log('----------main----------');
+        console.log(account);
+        console.log('---------recipient--------');
+        console.log(recipientAccount);
+        console.log('----------all----------');
+        console.log(accounts);
+        console.log('--------------------');
+        writeFileSync('contas.json', JSON.stringify(accounts, null, 2));
+        console.log('Transferência realizada com sucesso!');
+      }
+    }
+
+    if (validateCpf(cpf) && validateCpf(recipientCPF)) {
+      transferMoney(sentValue);
+    } else {
+      console.log('Informe um CPF válido!');
+    }
+    break;
+  case 'getAllAccounts':
+    console.log(accounts);
+    break;
 }
