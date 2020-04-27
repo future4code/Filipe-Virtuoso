@@ -183,13 +183,6 @@ switch (operationType) {
       } else {
         account[0].balance -= Number(value);
         recipientAccount[0].balance += Number(value);
-        console.log('----------main----------');
-        console.log(account);
-        console.log('---------recipient--------');
-        console.log(recipientAccount);
-        console.log('----------all----------');
-        console.log(accounts);
-        console.log('--------------------');
         writeFileSync('contas.json', JSON.stringify(accounts, null, 2));
         console.log('Transferência realizada com sucesso!');
       }
