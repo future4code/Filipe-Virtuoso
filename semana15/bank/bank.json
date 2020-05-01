@@ -1,0 +1,26 @@
+[
+  {
+    "balance": 0,
+    "cpf": "3333",
+    "name": "Tião",
+    "age": 28,
+    "birth": "10/01/1992",
+    "transactions": []
+  },
+  {
+    "balance": 0,
+    "cpf": "2222",
+    "name": "Luiz",
+    "age": 28,
+    "birth": "10/01/1992",
+    "transactions": []
+  },
+  {
+    "balance": 0,
+    "cpf": "1111",
+    "name": "Filipe",
+    "age": 28,
+    "birth": "10/01/1992",
+    "transactions": []
+  }
+]
