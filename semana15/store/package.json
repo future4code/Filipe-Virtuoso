@@ -1,0 +1,7 @@
+{
+  "name": "store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Filipe Virtuoso <lfvirtuoso@gmail.com> (htpps://filipevirtuoso.com.br)",
+  "license": "MIT"
+}
