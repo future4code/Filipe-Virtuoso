@@ -106,3 +106,17 @@ console.log(newSeller.getAdmissionDate());
 console.log(newSeller.getBasesalary());
 
 //Não posso imprimir a senha
+
+console.log('------------------Exercício 10--------------------');
+
+const newSeller2 = new Seller(
+  uuid(),
+  'teste2@gmail.com',
+  'Luiz2',
+  '323323',
+  '10/04/2019',
+  4239
+);
+
+newSeller2.setSalesQuantity(2);
+console.log(newSeller2.calculateTotalSalary());
