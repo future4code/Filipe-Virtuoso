@@ -1,7 +1,0 @@
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 470vh;
-  background: #f4f4f4;
-}
