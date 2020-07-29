@@ -1,0 +1,147 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Handlee&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Slabo+27px&display=swap");
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #ebe8ff;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Utility classes */
+
+.btn {
+  background: #7c70ff;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  color: #f4f4f4;
+  text-transform: uppercase;
+  width: 20%;
+  font-size: 1.1rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  background: #282829;
+  color: #f4f4f4;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  height: 20vh;
+  padding: 0.5rem;
+  background: #cbc3fa;
+}
+
+.actions textarea {
+  outline: 0;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+select {
+  width: 27%;
+  text-align: center;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: 0;
+  background: #f4f4f4;
+}
+
+/* Main */
+.todo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  background: #ebe8ff;
+  height: 70vh;
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.todo article {
+  /* padding: 0.55rem; */
+  margin: 0.5rem;
+  background: #dbdbdb;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+article h3 {
+  font-size: 1.5rem;
+  border-bottom: 1px dotted black;
+  text-transform: uppercase;
+  font-family: "Slabo 27px", serif;
+  background: #7a8cff;
+  color: #f4f4f4;
+  border-radius: 10px 10px 0 0;
+}
+
+.todo ul {
+  list-style: none;
+}
+
+.todo ul li {
+  margin: auto;
+  margin: 1rem;
+  cursor: pointer;
+  font-family: "Handlee", cursive;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    height: 50vh;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .actions textarea {
+    height: 10vh;
+  }
+
+  .actions select {
+    width: 100%;
+  }
+
+  body {
+    background: #ebe8ff;
+  }
+}
