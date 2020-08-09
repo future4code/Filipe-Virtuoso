@@ -1,0 +1,19 @@
+.big-card {
+  display: flex;
+  padding: 1rem;
+  border: 1px solid #444;
+  width: 30%;
+  margin-top: 0.3rem;
+}
+
+.profile-image {
+  width: 80px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0.5rem;
+}
