@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 
-const BigCard = (props) => {
+const BigCard = ({ imgLink, name, description }) => {
   return (
     <>
       <section className="big-card">
-        <img class="profile-image" src={props.imgLink} alt="profile" />
+        <img class="profile-image" src={imgLink} alt="profile" />
         <div className="profile-info">
-          <h2>{props.name}</h2>
-          <p>{props.description}</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
         </div>
       </section>
     </>
