@@ -58,17 +58,16 @@ export const I = styled.i`
 
 export const ChatWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   padding: 0.75rem;
   align-items: center;
   border-bottom: 1px solid #ccc;
 `;
 
 export const MessageWrapper = styled.div`
-  margin-left: -7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 0.75rem;
 `;
 
 export const Name = styled.h4`
@@ -79,6 +78,7 @@ export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: auto;
 `;
 
 export const Time = styled.p`

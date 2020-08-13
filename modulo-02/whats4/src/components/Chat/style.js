@@ -10,7 +10,7 @@ export const ChatWrapper = styled.section`
 
 export const ChatHeader = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   border-bottom: 1px solid #ccc;
   padding: 0.5rem;
@@ -26,11 +26,12 @@ export const ProfileName = styled.h4`
   color: #444;
   font-weight: bold;
   font-size: 1rem;
-  margin-left: -45rem;
+  margin-left: 0.75rem;
 `;
 
 export const IconsArea = styled.div`
   width: 12%;
+  margin-left: auto;
   margin-right: 2rem;
   display: flex;
   align-items: center;
@@ -54,7 +55,7 @@ export const FormWrapper = styled.div`
   border-right: none;
   padding: 0.3rem;
   height: 9vh;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 `;
 
 export const SendInput = styled.input`
