@@ -1,0 +1,14 @@
+.button {
+  width: 15%;
+  border: 1px solid #444;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-top: 0.3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.button a {
+  text-decoration: none;
+  color: #444;
+}
