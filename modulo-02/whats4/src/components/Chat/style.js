@@ -40,10 +40,16 @@ export const IconsArea = styled.div`
 `;
 
 export const MessagesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 5rem;
   width: 100%;
-  height: 83vh;
+  height: 655px;
   background: #fff;
   border-left: 1px solid #ccc;
+  overflow-y: auto;
 `;
 
 export const FormWrapper = styled.div`
@@ -65,4 +71,11 @@ export const SendInput = styled.input`
   border-radius: 20px;
   border: none;
   outline: 0;
+`;
+
+export const Message = styled.p`
+  background-color: #63ff66;
+  padding: 1rem;
+  margin: 0.3rem;
+  border-radius: 10px;
 `;

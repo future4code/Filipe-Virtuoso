@@ -4,9 +4,34 @@ import PropTypes from "prop-types";
 import * as S from "./style";
 
 export class Chat extends Component {
-  static propTypes = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: "",
+      message: "",
+    };
+  }
+  static propTypes = {
+    addMessage: PropTypes.func.isRequired,
+    messages: PropTypes.array.isRequired,
+  };
+
+  handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      console.log(this.state.message);
+      this.props.addMessage("lfvirtuso", this.state.message);
+      this.setState({ message: "" });
+    }
+  };
+
+  handleMessageInput = (event) => {
+    this.setState({ message: event.target.value });
+  };
 
   render() {
+    const showMessages = this.props.messages.map((el, index) => {
+      return <S.Message key={index}>{el.message}</S.Message>;
+    });
     return (
       <S.ChatWrapper>
         <S.ChatHeader>
@@ -18,11 +43,16 @@ export class Chat extends Component {
             <i className="fas fa-ellipsis-v"></i>
           </S.IconsArea>
         </S.ChatHeader>
-        <S.MessagesWrapper></S.MessagesWrapper>
+        <S.MessagesWrapper>{showMessages}</S.MessagesWrapper>
         <S.FormWrapper>
           <i className="far fa-grin-beam"></i>
-          <S.SendInput placeholder="Digite uma mensagem" />
-          <i class="fas fa-microphone"></i>
+          <S.SendInput
+            placeholder="Digite uma mensagem"
+            value={this.state.message}
+            onChange={this.handleMessageInput}
+            onKeyDown={this.handleKeyDown}
+          />
+          <i className="fas fa-microphone"></i>
         </S.FormWrapper>
       </S.ChatWrapper>
     );
