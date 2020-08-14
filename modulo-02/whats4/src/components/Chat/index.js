@@ -11,7 +11,10 @@ export class Chat extends Component {
       message: "",
     };
   }
-  static propTypes = {};
+  static propTypes = {
+    addMessage: PropTypes.func.isRequired,
+    messages: PropTypes.array.isRequired,
+  };
 
   handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -27,7 +30,7 @@ export class Chat extends Component {
 
   render() {
     const showMessages = this.props.messages.map((el, index) => {
-      return <S.Message>{el.message}</S.Message>;
+      return <S.Message key={index}>{el.message}</S.Message>;
     });
     return (
       <S.ChatWrapper>
