@@ -10,7 +10,6 @@ export const ChatWrapper = styled.section`
 
 export const ChatHeader = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   border-bottom: 1px solid #ccc;
   padding: 0.5rem;
@@ -46,7 +45,7 @@ export const MessagesWrapper = styled.div`
   justify-content: flex-end;
   padding-right: 5rem;
   width: 100%;
-  height: 655px;
+  height: 82vh;
   background: #fff;
   border-left: 1px solid #ccc;
   overflow-y: auto;
